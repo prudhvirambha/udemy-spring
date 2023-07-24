@@ -1,5 +1,8 @@
 package com.udemy.spring.basics.springin5steps;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BubblesortAlgo implements  SortAlgorithm{
     public int[] sort(int[] numbers){
         //Logic for bubble sort
