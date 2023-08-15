@@ -22,12 +22,12 @@ public class SpringIn5StepsApplication {
 				SpringApplication.run(SpringIn5StepsApplication.class, args);
 		BinarySearchImpl binarySearch =
 				applicationContext.getBean(BinarySearchImpl.class);
-		//Requesting same bean
+
 		BinarySearchImpl binarySearch1 =
 				applicationContext.getBean(BinarySearchImpl.class);
 		System.out.println(binarySearch);
-		System.out.println(binarySearch1); //Prints same output as above
-		//Which means we will get same instance for both (Singleton) so bean scope is singleton by default
+		System.out.println(binarySearch1); //Prints different output
+		//We are rquesting prototype bean
 		int result=binarySearch.binarySearch(new int[] {12,14,2,14},3);
 		System.out.println(result);
 	}
