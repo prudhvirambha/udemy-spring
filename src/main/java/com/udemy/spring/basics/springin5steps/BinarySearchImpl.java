@@ -7,16 +7,17 @@ import org.springframework.stereotype.Component;
 public class BinarySearchImpl {
 
     @Autowired
-    private SortAlgorithm sortAlgorithm;
+    private SortAlgorithm bubblesortAlgo;
 
-    public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
-        super();
-        this.sortAlgorithm = sortAlgorithm;
-    }
+    //below is the constructor injection
+//    public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
+//        super();
+//        this.sortAlgorithm = sortAlgorithm;
+//    }
 
     public int binarySearch(int[] numbers, int numberToSearchFor){
-        int[] sortedNumbers= sortAlgorithm.sort(numbers);
-        System.out.println(sortAlgorithm);
+        int[] sortedNumbers= bubblesortAlgo.sort(numbers);
+        System.out.println(bubblesortAlgo);
         return 30;
     }
 }
