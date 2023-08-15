@@ -23,11 +23,11 @@ public class SpringIn5StepsBasicApplication {
 		BinarySearchImpl binarySearch =
 				applicationContext.getBean(BinarySearchImpl.class);
 
-		BinarySearchImpl binarySearch1 =
-				applicationContext.getBean(BinarySearchImpl.class);
+//		BinarySearchImpl binarySearch1 =
+//				applicationContext.getBean(BinarySearchImpl.class);
 		System.out.println(binarySearch);
-		System.out.println(binarySearch1); //Prints different output
-		//We are rquesting prototype bean
+		//System.out.println(binarySearch1); //Prints different output
+		//We are requesting prototype bean
 		int result=binarySearch.binarySearch(new int[] {12,14,2,14},3);
 		System.out.println(result);
 	}

@@ -6,8 +6,13 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) //This will create a new instance
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) 
+//This is changed from prototype to singleton to call predestroy
 //The above is good practice
 public class BinarySearchImpl {
 
@@ -25,5 +30,18 @@ public class BinarySearchImpl {
         int[] sortedNumbers= sortAlgorithm.sort(numbers);
         System.out.println(sortAlgorithm);
         return 30;
+    }
+    
+    @PostConstruct
+    //Will be called after bean construction
+    public void postConstruct() {
+    	System.out.println("PostConstruct");
+    }
+    
+    @PreDestroy 
+    //This will not be called for Prototype 
+    //as the these bean life cycle is not completely managed by spring
+    public void preDestroy() {
+    	System.out.println("PreDestroy");
     }
 }
