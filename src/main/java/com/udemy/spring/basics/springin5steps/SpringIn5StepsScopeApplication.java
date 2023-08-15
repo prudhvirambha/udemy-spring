@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.udemy.spring.basics.springin5steps.basic.BinarySearchImpl;
 import com.udemy.spring.basics.springin5steps.scope.PersonDAO;
 
 @SpringBootApplication
@@ -25,7 +24,9 @@ public class SpringIn5StepsScopeApplication {
 				applicationContext.getBean(PersonDAO.class);
 		
 		LOGGER.info("{}",personDao);
-		LOGGER.info("{}",personDao.getJdbcConnection());
+		LOGGER.info("{}",personDao.getJdbcConnection()); //Different output
+		LOGGER.info("{}",personDao.getJdbcConnection()); //Different output
+		//Due to proxy we get different output for same instance
 		
 		LOGGER.info("{}",personDao1);
 		LOGGER.info("{}",personDao1.getJdbcConnection());
