@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class BinarySearchImpl {
 
     @Autowired
-    @Qualifier("bubble")
+    @Qualifier("quick")
     private SortAlgorithm sortAlgorithm;
 
     //below is the constructor injection
