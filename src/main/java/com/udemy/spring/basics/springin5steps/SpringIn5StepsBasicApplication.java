@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.sql.SQLOutput;
+import com.udemy.spring.basics.springin5steps.basic.BinarySearchImpl;
 
 @SpringBootApplication
-public class SpringIn5StepsApplication {
+public class SpringIn5StepsBasicApplication {
 
 	//What are the beans @Component
 	//What are the dependencies of a bean @Autowired
@@ -19,7 +19,7 @@ public class SpringIn5StepsApplication {
 		//BinarySearchImpl binarySearch=new BinarySearchImpl(new BubblesortAlgo());
 		//Application context will maintain the beans
 		ApplicationContext applicationContext =
-				SpringApplication.run(SpringIn5StepsApplication.class, args);
+				SpringApplication.run(SpringIn5StepsBasicApplication.class, args);
 		BinarySearchImpl binarySearch =
 				applicationContext.getBean(BinarySearchImpl.class);
 
