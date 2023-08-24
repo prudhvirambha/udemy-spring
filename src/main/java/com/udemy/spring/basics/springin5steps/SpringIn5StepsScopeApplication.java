@@ -2,13 +2,16 @@ package com.udemy.spring.basics.springin5steps;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.udemy.spring.basics.springin5steps.scope.PersonDAO;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan
 public class SpringIn5StepsScopeApplication {
 
 	private static Logger LOGGER=
@@ -16,7 +19,8 @@ public class SpringIn5StepsScopeApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext =
-				SpringApplication.run(SpringIn5StepsScopeApplication.class, args);
+				new AnnotationConfigApplicationContext(SpringIn5StepsScopeApplication.class);
+				//SpringApplication.run(SpringIn5StepsScopeApplication.class, args);
 		PersonDAO personDao =
 				applicationContext.getBean(PersonDAO.class);
 
@@ -30,6 +34,7 @@ public class SpringIn5StepsScopeApplication {
 		
 		LOGGER.info("{}",personDao1);
 		LOGGER.info("{}",personDao1.getJdbcConnection());
+		((ConfigurableApplicationContext)applicationContext).close();
 	}
 
 }
